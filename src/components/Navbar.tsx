@@ -18,6 +18,12 @@ const Navbar = () => {
 
   useEffect(() => setMobileOpen(false), [location]);
 
+  // Body scroll lock when mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   const navLinks = [
     { to: '/', label: t('nav', 'home') },
     { to: '/servicii', label: t('nav', 'services') },
@@ -37,7 +43,11 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-baseline gap-1">
+        <Link
+          to="/"
+          className="flex items-baseline gap-1"
+          onClick={() => { if (location.pathname === '/') window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        >
           <span className="font-heading text-2xl font-bold italic text-primary">LUXE</span>
           <span className="font-subheading text-sm text-foreground tracking-[4px]">STUDIO</span>
         </Link>
@@ -82,6 +92,7 @@ const Navbar = () => {
           <Link
             to="/rezervare"
             className="font-subheading text-xs tracking-wider px-4 py-2 border border-primary text-primary"
+            onClick={() => setMobileOpen(false)}
           >
             {t('nav', 'book')}
           </Link>
