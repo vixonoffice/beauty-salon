@@ -69,6 +69,10 @@ const Footer = () => {
             <a href="#" className="hover:text-primary transition-colors">Termeni</a>
             <a href="#" className="hover:text-primary transition-colors">GDPR</a>
             <span>{t('footer', 'madeIn')}</span>
+            <span className="opacity-30">·</span>
+            <a href="https://vixonlab.ro" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              Site realizat de Vixon Lab
+            </a>
           </div>
         </div>
       </div>
