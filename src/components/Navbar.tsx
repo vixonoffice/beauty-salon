@@ -46,7 +46,7 @@ const Navbar = () => {
         <Link
           to="/"
           className="flex items-baseline gap-1"
-          onClick={() => { if (location.pathname === '/') window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          onClick={() => { setMobileOpen(false); if (location.pathname === '/') window.scrollTo({ top: 0, behavior: 'instant' }); }}
         >
           <span className="font-heading text-2xl font-bold italic text-primary">LUXE</span>
           <span className="font-subheading text-sm text-foreground tracking-[4px]">STUDIO</span>
